@@ -22,7 +22,12 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: inherit;
 }
+
+html {
+    box-sizing: border-box;
+  }
 
 .-pink {
     color: #F16D7F !important;
@@ -47,10 +52,10 @@ a {
 }
 
 button.menu-button:active > span,
-.page-header-menu-close-button:active .fa-times,
 .customer-subscribe-form-button:active,
 .page-footer-socials-item:active,
-.page-slider-arrow-left:active {
+.page-slider-arrow-left:active,
+.reg-submit:active {
     background: red !important;
 }
 
@@ -71,7 +76,8 @@ button.menu-button:active > span,
 }
 .page-catalog-teaser-item:active,
 .filter-button:active,
-.card-page-number-wrap a:active {
+.card-page-number-wrap a:active,
+.page-header-menu-close-button:active .fa-times {
     color: red !important; 
 }
 .page-footer-socials-item:active .fab {
@@ -176,7 +182,7 @@ button.menu-button:active > span,
 
 .page-header-menu {
     background-color: #FFF;
-    height: calc(100% + 125px);
+    height: calc(100% + 145px);
     position: absolute;
     padding: 16px 16px 0 34px;
     right: 0;
@@ -726,7 +732,9 @@ button.menu-button:active > span,
     font-family: "Lato 400", serif;
     color: #F16D7F;
 }
-
+.page-catalog-teaser-right a::after {
+    content: ' / '
+}
 .page-catalog-teaser-right,
 .page-catalog-teaser-right .page-catalog-teaser-item {
     color: #636363;
@@ -1383,6 +1391,157 @@ button.menu-button:active > span,
 }
 /* / Cart */
 
+/* Registration */
+.page-teaser-catalog.-registration {
+    margin-bottom: 96px;
+}
+
+.reg {
+    width: 100%;
+    margin-bottom: 96px;
+    font-family: "Lato 300", serif;
+}
+
+.reg-form-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.reg-form {
+    margin-right: 128px;
+}
+
+.reg-form-name,
+.reg-form-surname,
+.reg-email,
+.reg-password {
+    display: block;
+    width: 100%;
+    padding: 13px 16px;
+    font-size: 13px;
+}
+
+.reg-form-name:focus,
+.reg-form-surname:focus,
+.reg-email:focus,
+.reg-password:focus {
+    outline-width: 3px;
+    outline-style: solid;
+    outline-color: rgba(255, 0, 0, 0.295);
+  }
+
+.reg-form-name {
+    margin-bottom: 20px;
+}
+
+.reg-form-surname {
+    margin-bottom: 30px;
+}
+
+.reg-form-name-title,
+.reg-form-login-title {
+    color: #222;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.reg-form-radio {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.reg-form-radio input {
+    margin-right: 10px;
+}
+
+.reg-form-radio-male,
+.reg-form-radio-femail {
+    margin-right: 20px;
+}
+
+.reg-email {
+    margin-bottom: 20px;
+}
+
+.reg-password {
+    margin-bottom: 15px;
+}
+
+.reg-form-text {
+    color: #B1B1B1;
+    font-size: 13px;
+    margin-bottom: 40px;
+}
+
+.reg-submit {
+    width: 167px;
+    text-transform: uppercase;
+    color: #FFF;
+    background: #F16D7F;
+    border: none;
+    cursor: pointer;
+    padding: 16px 0;
+    font-size: 14px;
+}
+
+.reg-submit svg {
+    fill: #FFF;
+    margin-left: 20px;
+}
+
+.reg-info {
+    width: 652px;
+}
+
+.reg-info-title {
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 22px;
+    font-size: 24px;
+}
+
+.reg-info-text {
+    display: block;
+    margin-bottom: 22px;
+    font-size: 24px;
+}
+
+.reg-info-list {
+    padding-left: 30px;
+}
+
+.reg-info-list li {
+    list-style: none;
+    position: relative;
+}
+
+.reg-info-list li::before {
+    content: '';
+    width: 20px;
+    height: 16px;
+    background-image: url(../img/check.svg);
+    position: absolute;
+    left: -29px;
+    top: 3px;
+}
+
+.reg-info-list li:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.reg-submit:hover {
+    color: #222224;
+}
+
+.reg-submit:hover svg {
+    fill: #222224;
+}
+/* / Registration */
+
 
 /* Media */
 @media only screen and (max-width: 1140px) {
@@ -1526,6 +1685,9 @@ button.menu-button:active > span,
     }
     .cart-cards-button-clear {
         margin-right: 48px;
+    }
+    .reg-form {
+        margin-right: 22px;
     }
 }
 
@@ -1692,6 +1854,26 @@ button.menu-button:active > span,
     }
     .cart-cards-button-clear {
         margin-right: 0;
+    }
+
+    .reg-form {
+        margin-right: 0;
+    }
+    .reg-form-wrap{
+        flex-direction: column;
+        padding: 0 9px;
+    }
+    .reg-info {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .page-teaser-catalog.-registration {
+        margin-bottom: 40px;
+    }
+    .reg-info-title,
+    .reg-info-text,
+    .reg-info-list {
+        font-size: 16px;
     }
 }
 
